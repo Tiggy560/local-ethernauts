@@ -19,7 +19,7 @@ describe("Attacking Denial", function () {
   });
 
   // Get this to pass!
-  it("Succesfully stop the owner from withdrawing", async () => {
+  it("Successfully stop the owner from withdrawing", async () => {
     const provider = ethers.provider;
     let error;
     try {
