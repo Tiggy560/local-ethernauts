@@ -21,7 +21,7 @@ describe("Attacking King", function () {
   });
 
   // Get this to pass!
-  it("Succesfully become and remain the king forever", async () => {
+  it("Successfully become and remain the king forever", async () => {
     await attacker.hackContract({ gasLimit: 30000000 });
     try {
       await kingPlayer.sendTransaction({
