@@ -21,7 +21,7 @@ describe("Attacking Delegation", function () {
   });
 
   // Get this to pass!
-  it("Succesfully taken ownership", async () => {
+  it("Successfully taken ownership", async () => {
     await attacker.hackContract({ gasLimit: 30000000 });
     const owner = await victim.owner();
     expect(owner).to.be.equal(attacker.address);
