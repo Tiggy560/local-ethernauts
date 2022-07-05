@@ -13,7 +13,7 @@ describe("Attacking Vault", function () {
   });
 
   // Get this to pass!
-  it("Succesfully unlock the vault", async () => {
+  it("Successfully unlock the vault", async () => {
     await helper(victim);
     const locked = await victim.locked();
     expect(locked).to.be.equal(false);
