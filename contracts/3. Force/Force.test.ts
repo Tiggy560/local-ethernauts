@@ -13,7 +13,7 @@ describe("Attacking Force", function () {
   });
 
   // Get this to pass!
-  it("Succesfully give the force contract some ETH", async () => {
+  it("Successfully give the force contract some ETH", async () => {
     await attacker.hackContract();
     const provider = waffle.provider;
     const balance = await provider.getBalance(victim.address);

